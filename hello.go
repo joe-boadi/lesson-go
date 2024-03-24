@@ -7,9 +7,26 @@ import (
 	"rsc.io/quote"
 )
 
+// Variable Shadowing
+func example() {
+	x := 1
+	fmt.Println(x)
+
+	if true {
+		fmt.Println(x)
+		x := 2
+		fmt.Println(x)
+	}
+	fmt.Println(x)
+}
+
 func main() {
-	fmt.Println("Hello, world")
-	//returns a Go proverb.
+
+	//returns statements from "rsc".
 	fmt.Println(quote.Go())
-	// Display: "Don't communicate by sharing memory, share memory by communicating"
+	fmt.Println(quote.Hello())
+	fmt.Println(quote.Opt())
+	fmt.Println(quote.Glass())
+
+	example()
 }

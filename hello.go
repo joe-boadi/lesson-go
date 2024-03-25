@@ -1,9 +1,7 @@
 package main
-
 // import: Package quote collects pithy sayings.
 import (
 	"fmt"
-
 	"rsc.io/quote"
 )
 
@@ -17,11 +15,11 @@ func example() {
 		x := 2
 		fmt.Println(x)
 	}
+
 	fmt.Println(x)
 }
 
 func main() {
-
 	//returns statements from "rsc".
 	fmt.Println(quote.Go())
 	fmt.Println(quote.Hello())

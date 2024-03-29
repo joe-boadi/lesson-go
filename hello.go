@@ -50,6 +50,13 @@ func timeTaken(slice []int, n int) time.Duration {
 	return time.Since(t0)
 }
 
+// Structs and Interfaces
+type myBook struct {
+	ID        uint
+	Title     string
+	Published uint
+}
+
 func main() {
 	//returns statements from "rsc".
 	fmt.Println(quote.Go())
@@ -70,4 +77,8 @@ func main() {
 	testSlice2 := make([]int, 0, n)
 	fmt.Printf("Total time with pre-allocation: %v \n", timeTaken(testSlice2, n))
 	fmt.Printf("Total time without pre-allocation: %v \n", timeTaken(testSlice, n))
+
+	// Structs and Interfaces
+	var newBook myBook = myBook{001, "Golang 101", 2024}
+	fmt.Printf("\n%v", newBook)
 }

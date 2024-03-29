@@ -55,6 +55,11 @@ type myBook struct {
 	ID        uint
 	Title     string
 	Published uint
+	writer
+}
+
+type writer struct {
+	name string
 }
 
 func main() {
@@ -70,8 +75,6 @@ func main() {
 	array_()
 	myMap()
 
-	fmt.Println("\n")
-
 	n := 10000
 	testSlice := []int{}
 	testSlice2 := make([]int, 0, n)
@@ -79,6 +82,6 @@ func main() {
 	fmt.Printf("Total time without pre-allocation: %v \n", timeTaken(testSlice, n))
 
 	// Structs and Interfaces
-	var newBook myBook = myBook{001, "Golang 101", 2024}
+	var newBook myBook = myBook{001, "Golang 101", 2024, writer{"Joe"}}
 	fmt.Printf("\n%v", newBook)
 }

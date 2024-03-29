@@ -62,6 +62,8 @@ type writer struct {
 	name string
 }
 
+// TODO: Go over interfaces!
+
 func main() {
 	//returns statements from "rsc".
 	fmt.Println(quote.Go())

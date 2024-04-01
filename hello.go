@@ -64,14 +64,21 @@ type writer struct {
 
 // TODO: Go over interfaces!
 
+// Pointers % memory addressing: tackling memory redundancy
+func squared(something *[5]float64) [5]float64 {
+	for i := range something {
+		something[i] = something[i] * something[i]
+	}
+	fmt.Printf("Memory address of something: %p\n", something)
+	return *something
+}
+
 func main() {
 	//returns statements from "rsc".
 	fmt.Println(quote.Go())
 	fmt.Println(quote.Hello())
 	fmt.Println(quote.Opt())
 	fmt.Println(quote.Glass())
-
-	fmt.Println("\n")
 
 	example()
 	array_()
@@ -80,10 +87,16 @@ func main() {
 	n := 10000
 	testSlice := []int{}
 	testSlice2 := make([]int, 0, n)
-	fmt.Printf("Total time with pre-allocation: %v \n", timeTaken(testSlice2, n))
+	fmt.Printf("\nTotal time with pre-allocation: %v \n", timeTaken(testSlice2, n))
 	fmt.Printf("Total time without pre-allocation: %v \n", timeTaken(testSlice, n))
 
 	// Structs and Interfaces
 	var newBook myBook = myBook{001, "Golang 101", 2024, writer{"Joe"}}
-	fmt.Printf("\n%v", newBook)
+	fmt.Printf("\n%v\n", newBook)
+
+	// Pointers & address: squared()
+	var something_again = [5]float64{2, 3, 4, 5, 6}
+	var result [5]float64 = squared(&something_again)
+	fmt.Printf("\nResults from slice/arr: %v\n", result)
+	fmt.Printf("Memory address of something_again: %p\n", &something_again)
 }
